@@ -4,277 +4,212 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#090D18">
 <title>LOTTERY CHALLENGE</title>
 
 <style>
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  background: #090D18;
-  color: white;
-  font-family: Arial, sans-serif;
-}
-
-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 18px;
-  border-bottom: 1px solid #A77B24;
-}
-
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.lion {
-  font-size: 43px;
-}
-
-.logo h2 {
-  color: #E8B94D;
-  font-size: 17px;
-}
-
-.logo p {
-  color: #aaa;
-  font-size: 10px;
-  letter-spacing: 2px;
-}
-
-select {
-  background: #172235;
-  color: white;
-  border: 1px solid #D4A63F;
-  padding: 8px;
-  border-radius: 7px;
-}
-
-.hero {
-  text-align: center;
-  padding: 55px 20px 35px;
-  background: radial-gradient(circle, #263247, #090D18 70%);
-}
-
-.crown {
-  font-size: 48px;
-}
-
-.hero h1 {
-  color: #F2C45D;
-  font-size: 34px;
-  margin: 12px 0;
-}
-
-.hero p {
-  color: #C4CBD5;
-  line-height: 1.6;
-  max-width: 430px;
-  margin: auto;
-}
-
-.button {
-  display: inline-block;
-  margin-top: 25px;
-  background: linear-gradient(135deg,#F5D477,#B98220);
-  color: #10131B;
-  padding: 15px 30px;
-  border-radius: 9px;
-  border: none;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.container {
-  max-width: 900px;
-  margin: auto;
-  padding: 25px 18px;
-}
-
-.container h2 {
-  color: #E8B94D;
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.rooms {
-  display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
-  gap: 15px;
-}
-
-.room {
-  background: #151F30;
-  border: 1px solid #8D6929;
-  padding: 25px;
-  border-radius: 14px;
-  text-align: center;
-}
-
-.room h3 {
-  color: #F0C45B;
-  margin-bottom: 12px;
-}
-
-.room p {
-  color: #CBD1DB;
-  margin-bottom: 12px;
-}
-
-.room button {
-  background: #D8AD49;
-  color: #111;
-  padding: 11px 20px;
-  border: none;
-  border-radius: 7px;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.notice {
-  margin-top: 25px;
-  text-align: center;
-  padding: 17px;
-  background: #172235;
-  border-radius: 10px;
-  color: #E7C46E;
-  font-size: 13px;
-  line-height: 1.6;
-}
-
-footer {
-  text-align: center;
-  padding: 25px;
-  color: #929BA9;
-  border-top: 1px solid #283246;
-  font-size: 12px;
-  margin-top: 25px;
-}
-
-#message {
-  text-align: center;
-  color: #F2C45D;
-  margin-top: 18px;
-}
-
-@media(max-width:450px) {
-  .hero h1 { font-size: 27px; }
-  header { padding: 13px; }
-  .logo h2 { font-size: 14px; }
-}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#090e19;color:white;font-family:Arial,sans-serif}
+header{padding:16px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #bd9135}
+.brand{display:flex;align-items:center;gap:10px}
+.lion{font-size:38px}
+.brand h2{font-size:16px;color:#efc65d}
+.brand small{color:#aaa;font-size:10px}
+select{background:#172338;color:white;padding:9px;border:1px solid #bd9135;border-radius:7px}
+.hero{text-align:center;padding:45px 18px;background:radial-gradient(circle,#293950,#090e19 75%)}
+.hero .crown{font-size:45px}
+.hero h1{color:#efc65d;font-size:29px;margin:12px}
+.hero p{color:#cbd2dc;line-height:1.6}
+button{cursor:pointer}
+.gold{background:linear-gradient(135deg,#f5d477,#b77c1d);color:#111;border:0;border-radius:8px;padding:13px 22px;font-weight:bold;margin-top:18px}
+.container{max-width:850px;margin:auto;padding:25px 16px}
+h2.section{text-align:center;color:#efc65d;margin-bottom:20px}
+.rooms{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:15px}
+.room{background:#172338;border:1px solid #9b762f;padding:24px;border-radius:13px;text-align:center}
+.room h3{color:#efc65d;margin-bottom:10px}
+.room p{color:#cbd2dc}
+.room button{background:#d9ad49;color:#111;border:0;padding:11px 22px;border-radius:7px;font-weight:bold;margin-top:15px}
+#game{display:none}
+#numbers{display:grid;grid-template-columns:repeat(8,1fr);gap:8px;margin:22px 0}
+.num{background:#1c2b42;border:1px solid #46556c;color:white;border-radius:8px;padding:11px 2px;font-weight:bold}
+.num.selected{background:#e5b949;color:#111;border-color:#ffe39b}
+.info{text-align:center;color:#e8c15d;margin:12px}
+.panel{background:#172338;padding:18px;border-radius:12px;text-align:center;margin:15px 0}
+.actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.actions button{padding:12px 18px;border-radius:8px;border:0;font-weight:bold}
+.confirm{background:#e6b84c;color:#111}
+.back{background:#34445d;color:white}
+#result{color:#f4d77d;text-align:center;margin-top:18px;line-height:1.6}
+.notice{background:#172338;padding:15px;border-radius:10px;color:#e6c36e;text-align:center;font-size:12px;line-height:1.6;margin-top:22px}
+footer{text-align:center;padding:25px;color:#929cab;border-top:1px solid #29354a;margin-top:25px;font-size:12px}
+@media(max-width:400px){#numbers{gap:5px}.num{padding:10px 1px;font-size:13px}.hero h1{font-size:24px}}
 </style>
 </head>
 
 <body>
 
 <header>
-  <div class="logo">
-    <div class="lion">🦁👑</div>
-    <div>
-      <h2>LOTTERY CHALLENGE</h2>
-      <p>PLAY • DREAM • CHALLENGE</p>
-    </div>
-  </div>
+<div class="brand">
+<div class="lion">🦁👑</div>
+<div>
+<h2>LOTTERY CHALLENGE</h2>
+<small>PLAY • DREAM • CHALLENGE</small>
+</div>
+</div>
 
-  <select id="language" onchange="changeLanguage()">
-    <option value="ht">Kreyòl</option>
-    <option value="fr">Français</option>
-    <option value="es">Español</option>
-    <option value="en">English</option>
-  </select>
+<select id="language">
+<option value="ht">Kreyòl</option>
+<option value="fr">Français</option>
+<option value="es">Español</option>
+<option value="en">English</option>
+</select>
 </header>
 
-<section class="hero">
-  <div class="crown">👑</div>
-  <h1>LOTTERY CHALLENGE</h1>
-  <p id="intro">
-    Byenveni sou platfòm LOTTERY CHALLENGE.
-    Chwazi nimewo ou yo epi patisipe nan eksperyans Demo nou an.
-  </p>
-  <button class="button" onclick="showMessage('Byenveni nan Demo LOTTERY CHALLENGE!')">
-    KÒMANSE KOUNYE A
-  </button>
+<section class="hero" id="home">
+<div class="crown">👑</div>
+<h1>LOTTERY CHALLENGE</h1>
+<p>Byenveni sou platfòm nou an. Chwazi chanm ou epi teste chans ou nan Demo Mode.</p>
+<button class="gold" onclick="goToRooms()">KÒMANSE KOUNYE A</button>
+</section>
+
+<section class="container" id="roomSection">
+<h2 class="section">CHWAZI CHANM OU</h2>
+
+<div class="rooms">
+<div class="room">
+<h3>SMALL ROOM</h3>
+<p>10 Patisipan</p>
+<button onclick="openRoom('SMALL ROOM',10)">CHWAZI</button>
+</div>
+
+<div class="room">
+<h3>MEDIUM ROOM</h3>
+<p>100 Patisipan</p>
+<button onclick="openRoom('MEDIUM ROOM',100)">CHWAZI</button>
+</div>
+
+<div class="room">
+<h3>LARGE ROOM</h3>
+<p>1,000 Patisipan</p>
+<button onclick="openRoom('LARGE ROOM',1000)">CHWAZI</button>
+</div>
+</div>
+</section>
+
+<section class="container" id="game">
+<h2 class="section" id="roomName">SMALL ROOM</h2>
+
+<div class="panel">
+<p>CHWAZI EGZAKTEMAN 10 NIMEWO SOU 80</p>
+<p class="info">Nimewo chwazi: <strong id="count">0</strong> / 10</p>
+</div>
+
+<div id="numbers"></div>
+
+<div class="actions">
+<button class="back" onclick="clearNumbers()">EFASЕ SELEKSYON</button>
+<button class="confirm" onclick="confirmTicket()">KONFIME TIKÈ DEMO</button>
+<button class="back" onclick="backToRooms()">RETOUNEN</button>
+</div>
+
+<div id="result"></div>
 </section>
 
 <section class="container">
-  <h2 id="roomTitle">CHWAZI CHANM OU</h2>
-
-  <div class="rooms">
-
-    <div class="room">
-      <h3>SMALL ROOM</h3>
-      <p>10 Patisipan</p>
-      <button onclick="showMessage('Ou chwazi SMALL ROOM')">CHWAZI</button>
-    </div>
-
-    <div class="room">
-      <h3>MEDIUM ROOM</h3>
-      <p>100 Patisipan</p>
-      <button onclick="showMessage('Ou chwazi MEDIUM ROOM')">CHWAZI</button>
-    </div>
-
-    <div class="room">
-      <h3>LARGE ROOM</h3>
-      <p>1,000 Patisipan</p>
-      <button onclick="showMessage('Ou chwazi LARGE ROOM')">CHWAZI</button>
-    </div>
-
-  </div>
-
-  <div id="message"></div>
-
-  <div class="notice">
-    DEMO MODE ONLY<br>
-    Jeton Demo yo pa gen valè lajan.
-    Pa gen depo lajan reyèl ni retrè.
-  </div>
+<div class="notice">
+DEMO MODE ONLY<br>
+Jeton Demo yo pa gen valè lajan. Pa gen depo lajan reyèl, retrè oswa pri lajan reyèl.
+</div>
 </section>
 
 <footer>
-  © 2026 LOTTERY CHALLENGE<br>
-  All Rights Reserved.
+© 2026 LOTTERY CHALLENGE<br>
+All Rights Reserved.
 </footer>
 
 <script>
-function showMessage(message) {
-  document.getElementById("message").textContent = message;
+let selectedNumbers = [];
+let currentRoom = "";
+
+function goToRooms(){
+document.getElementById("roomSection").scrollIntoView({behavior:"smooth"});
 }
 
-const translations = {
-  ht: {
-    intro: "Byenveni sou platfòm LOTTERY CHALLENGE. Chwazi nimewo ou yo epi patisipe nan eksperyans Demo nou an.",
-    start: "KÒMANSE KOUNYE A",
-    rooms: "CHWAZI CHANM OU"
-  },
-  fr: {
-    intro: "Bienvenue sur LOTTERY CHALLENGE. Choisissez vos numéros et participez à notre expérience de démonstration.",
-    start: "COMMENCER",
-    rooms: "CHOISISSEZ VOTRE SALLE"
-  },
-  es: {
-    intro: "Bienvenido a LOTTERY CHALLENGE. Elige tus números y participa en nuestra experiencia de demostración.",
-    start: "COMENZAR",
-    rooms: "ELIGE TU SALA"
-  },
-  en: {
-    intro: "Welcome to LOTTERY CHALLENGE. Choose your numbers and join our demo experience.",
-    start: "GET STARTED",
-    rooms: "CHOOSE YOUR ROOM"
-  }
+function openRoom(name,capacity){
+currentRoom=name;
+selectedNumbers=[];
+document.getElementById("roomName").textContent=name;
+document.getElementById("roomSection").style.display="none";
+document.getElementById("home").style.display="none";
+document.getElementById("game").style.display="block";
+document.getElementById("result").textContent="";
+createNumbers();
+updateCount();
+window.scrollTo(0,0);
+}
+
+function createNumbers(){
+const area=document.getElementById("numbers");
+area.innerHTML="";
+
+for(let i=1;i<=80;i++){
+const btn=document.createElement("button");
+btn.className="num";
+btn.textContent=i;
+
+btn.onclick=function(){
+toggleNumber(i,btn);
 };
 
-function changeLanguage() {
-  const lang = document.getElementById("language").value;
-  document.getElementById("intro").textContent = translations[lang].intro;
-  document.querySelector(".hero .button").textContent = translations[lang].start;
-  document.getElementById("roomTitle").textContent = translations[lang].rooms;
+area.appendChild(btn);
+}
+}
+
+function toggleNumber(number,button){
+if(selectedNumbers.includes(number)){
+selectedNumbers=selectedNumbers.filter(n=>n!==number);
+button.classList.remove("selected");
+}else{
+if(selectedNumbers.length>=10){
+alert("Ou deja chwazi 10 nimewo. Retire youn anvan ou ajoute yon lòt.");
+return;
+}
+selectedNumbers.push(number);
+button.classList.add("selected");
+}
+updateCount();
+}
+
+function updateCount(){
+document.getElementById("count").textContent=selectedNumbers.length;
+}
+
+function clearNumbers(){
+selectedNumbers=[];
+document.querySelectorAll(".num").forEach(btn=>btn.classList.remove("selected"));
+updateCount();
+document.getElementById("result").textContent="";
+}
+
+function confirmTicket(){
+if(selectedNumbers.length!==10){
+alert("Ou dwe chwazi egzakteman 10 nimewo.");
+return;
+}
+
+const sorted=[...selectedNumbers].sort((a,b)=>a-b);
+document.getElementById("result").innerHTML=
+"✅ TIKÈ DEMO KONFIME!<br>"+
+"Chanm: "+currentRoom+"<br>"+
+"Nimewo ou yo: "+sorted.join(" - ")+
+"<br><small>Sa se yon demonstrasyon lokal. Tikè a poko anrejistre sou yon sèvè.</small>";
+}
+
+function backToRooms(){
+document.getElementById("game").style.display="none";
+document.getElementById("home").style.display="block";
+document.getElementById("roomSection").style.display="block";
+document.getElementById("result").textContent="";
+window.scrollTo(0,0);
 }
 </script>
 
